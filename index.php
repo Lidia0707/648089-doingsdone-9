@@ -42,6 +42,35 @@ $task_list =[
         'done_status' => false
     ],
 ];
+
+function count_tasks(array $task_list, array $projects)
+{
+    $task_quantity = 0;
+    $index = 0;
+    $project_counter = count($projects);
+    $general_task_quantity;
+
+    {
+        foreach ($task_list as $key => $value)
+        {
+            if($task_list['name'] != '')
+            {
+                $task_quantity++;
+            }
+            elseif($task_list['name'] == 0)
+            {
+                $task_quantity = 0;
+            }
+        }
+
+        while($index <= $project_counter)
+        {
+            $index++;
+        }
+
+        $general_task_quantity=$index*$task_quantity;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -86,7 +115,8 @@ $task_list =[
                     <ul class="main-navigation__list">
                         <?php
                         foreach ($projects as $key => $value): ?>
-                        <a class="main-navigation__list-item-link" href="#"><?= $projects['value']; ?></a>
+                        <li class="main-navigation__list-item">
+                            <a class="main-navigation__list-item-link" href="#"><?= $projects['value']; ?></a>
                                     <span class="main-navigation__list-item-count">0</span>
                             </li>
                         <?php endforeach; ?>
